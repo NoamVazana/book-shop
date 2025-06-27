@@ -46,3 +46,7 @@ table tr button{
 .delete{
     background-color: rgb(255, 130, 52);
 }
+
+.hidden{
+    display: none;
+}

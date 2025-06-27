@@ -20,7 +20,7 @@ function render(){
             <td>${book.name}</td>
             <td>${book.price}</td>
             <td>
-                <button class="details" onClick='onReadBook("${book.id}")'>Details</button>
+                <button class="details" onClick='onShowDetails("${book.id}")'>Details</button>
                 <button class="update" onClick='onUpdateBook("${book.id}")'>Update</button>
                 <button class="delete" onClick='onRemoveBook("${book.id}")'>Delete</button>            </td>
         </tr>
@@ -45,4 +45,13 @@ function onAddBook(){
 
     addBook(bookName, bookPrice)
     render()
+}
+
+function onShowDetails(bookId){
+    const book = getBookById(bookId)
+    const elDetailsModal = document.querySelector('.book-details')
+    const elBookDetails = document.querySelector('pre')
+    elBookDetails.innerHTML= JSON.stringify(book, 4)
+
+    elDetailsModal.classList.remove('hidden')
 }

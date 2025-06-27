@@ -27,3 +27,7 @@ function addBook(name, price){
 function createBook(name, price){
     return {id: makeid(), name, price}
 }
+
+function getBookById(id){
+    return gBooks.find(book => book.id === id)
+}
