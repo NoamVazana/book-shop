@@ -47,3 +47,11 @@ table tr button{
     background-color: rgb(255, 130, 52);
 }
 
+.book-img{
+     width: 200px;
+    height: auto; 
+}
+
+.hidden{
+    display: none;
+}

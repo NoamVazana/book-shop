@@ -28,9 +28,9 @@ function createInitBooks(){
     const MobPsyImgUrl = 'https://m.media-amazon.com/images/M/MV5BYzU3NDM4ZjgtY2UyMi00YTczLTgyNDEtMjBiMDJlOGUxNjcxXkEyXkFqcGc@._V1_.jpg'
     const mobPsyInfo = 'A 12-year-old boy and his best friend, a wise 28-year-old dog with magical powers, go on a series of surreal adventures in a remote future.'
     return [
-        createBook('Adventure time', 120, atImgUrl,),
-        createBook("Jojo's bizzare adventure", 120,jojosImgUrl, ),
-        createBook('Mob psycho 100', 120, MobPsyImgUrl, )
+        createBook('Adventure time', 120, atImgUrl,atInfo),
+        createBook("Jojo's bizzare adventure", 120,jojosImgUrl,jojosInfo ),
+        createBook('Mob psycho 100', 120, MobPsyImgUrl, mobPsyInfo)
     ]
 }
 

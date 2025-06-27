@@ -50,9 +50,18 @@ function onAddBook(){
 function onShowDetails(bookId){
     const book = getBookById(bookId)
     const elDetailsModal = document.querySelector('.book-details')
-    const elBookDetails = document.querySelector('pre')
-    elBookDetails.innerHTML= JSON.stringify(book, null, 4)
+    const elForm = elDetailsModal.querySelector('form'); 
 
+    var innerHTML = `
+            <button>x</button>
+            <header>
+                <h2 class="title">${book.name}</h2> 
+                <p class="price">price: ${book.price}$</p>                      
+            </header>
+            <img class="book-img" src="${book.coverImgUrl}">
+            <p class="info">${book.info}</p>`
+
+    elForm.innerHTML= innerHTML
     elDetailsModal.showModal()
 }
 
