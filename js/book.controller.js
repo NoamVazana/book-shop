@@ -20,7 +20,7 @@ function render(){
             <td>${book.name}</td>
             <td>${book.price}</td>
             <td>
-                <button class="read" onClick='onReadBook("${book.id}")'>Read</button>
+                <button class="details" onClick='onReadBook("${book.id}")'>Details</button>
                 <button class="update" onClick='onUpdateBook("${book.id}")'>Update</button>
                 <button class="delete" onClick='onRemoveBook("${book.id}")'>Delete</button>            </td>
         </tr>
