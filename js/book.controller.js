@@ -51,7 +51,8 @@ function onShowDetails(bookId){
     const book = getBookById(bookId)
     const elDetailsModal = document.querySelector('.book-details')
     const elBookDetails = document.querySelector('pre')
-    elBookDetails.innerHTML= JSON.stringify(book, 4)
+    elBookDetails.innerHTML= JSON.stringify(book, null, 4)
 
-    elDetailsModal.classList.remove('hidden')
+    elDetailsModal.showModal()
 }
+

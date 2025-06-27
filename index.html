@@ -14,9 +14,14 @@
     <script src="js/book.service.js"></script>
     <script src="js/book.controller.js"></script>
 
-    <div class="book-details hidden">
-        <button onclick="onShowDetails()">x</button>
-        <pre></pre>
-    </div>
+    <dialog class="book-details">  <!-- add a modal -->
+        <form method="dialog"> <!-- add functionalitu of closing with esc and x btn -->
+            <button>x</button>
+            <header>
+                
+            </header>
+            <pre></pre>
+        <form>     
+    </dialog>
 </body>
 </html>
