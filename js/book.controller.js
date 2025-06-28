@@ -101,8 +101,8 @@ function showSuccessMsg(msg){
         <button>x</button>
         <p>${msg}</p>
     `
-
     elSuccessModal.showModal()
+     setTimeout(() => elSuccessModal.close(), 2000)
 }
 
 
