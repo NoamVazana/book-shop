@@ -4,14 +4,16 @@ const STORAGE_KEY = 'books'
 
 var gBooks = _createInitBooks()
 
-function getBooks(){
-    return gBooks
+function getBooks(filterBy){
+    if (!filterBy) return gBooks //no filter -> return all    
+    return gBooks.filter(book => book.name.includes(filterBy)) //return filtered table
 }
 
 function removeBook(id){
     const bookIdx = gBooks.findIndex(book => book.id === id)
-    gBooks.splice(bookIdx, 1)
+    var deletedBook = gBooks.splice(bookIdx, 1)
     _saveBooks()
+    return deletedBook[0]
 }
 
 function updatePrice(id, price){
@@ -61,3 +63,4 @@ function getBookById(id){
 function _saveBooks(){
     saveToLocalStorage(STORAGE_KEY, gBooks)
 }
+

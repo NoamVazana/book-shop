@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body onload="onInit()">
-    <button class="add-book" onclick="onAddBook()">Add a book</button>
+    <div class="controls-container">
+        <form onsubmit="onFilter(event)" class="filter-panel">
+            <input type="text" placeholder="Search by title" oninput="onSetFilter(this.value)">
+            <button>Filter</button>
+             <button type="button" onclick="onClearFilter()">Clear</button>
+        </form>
+        <button class="add-book" onclick="onAddBook()">Add a book</button>
+    </div>
     <table class="book-table">
     </table>    
     <script src="js/util.service.js"></script>
@@ -19,5 +26,10 @@
         <form method="dialog"> <!-- add functionality of closing with esc and x btn -->
         </form>     
     </dialog>
+    <dialog class="success-message">
+        <form method="dialog"> 
+        </form>     
+    </dialog>
+
 </body>
 </html>

@@ -1,5 +1,8 @@
 'use strict'
 
+var gFilterBy = ''
+
+
 function onInit(){
     render()
 }
@@ -13,7 +16,7 @@ function render(){
     </tr>`
 
     const elBookTable = document.querySelector('.book-table')
-    const books = getBooks()
+    const books = getBooks(gFilterBy)
 
     var strHtml = books.map(book => `
         <tr>
@@ -29,14 +32,16 @@ function render(){
 }
 
 function onRemoveBook(id){
-    removeBook(id)
+    var deletedBook = removeBook(id)
     render()
+    showSuccessMsg(`The book ${deletedBook.name} was removed successfully`)
 }
 
 function onUpdateBook(id){
     var price = prompt('Please enter the updated price:')
-    updatePrice(id, price)
+    var updatedBook = updatePrice(id, price)
     render()
+    showSuccessMsg(`The book ${updatedBook} has been updated successfully`)
 }
 
 function onAddBook(){
@@ -47,6 +52,7 @@ function onAddBook(){
 
     addBook(bookName, bookPrice, bookImgURL,bookInfo)
     render()
+    showSuccessMsg(`The book ${bookName} has been added successfully`)
 }
 
 function onShowDetails(bookId){
@@ -66,4 +72,37 @@ function onShowDetails(bookId){
     elForm.innerHTML= innerHTML
     elDetailsModal.showModal()
 }
+
+function onFilter(ev){
+    ev.preventDefault();         
+    const elInput = document.querySelector('input')
+    if (!elInput.value) return
+
+    gFilterBy = elInput.value
+    render()
+}
+
+function onSetFilter(txt) {
+  gFilterBy = txt;
+  render();
+}
+
+function onClearFilter() {
+  gFilterBy = '';
+  doctument.querySelector('.input').value = ''
+  render();
+}
+
+function showSuccessMsg(msg){
+    const elSuccessModal = document.querySelector('.success-message')
+    const elForm = elSuccessModal.querySelector('form'); 
+
+    elForm.innerHTML= `
+        <button>x</button>
+        <p>${msg}</p>
+    `
+
+    elSuccessModal.showModal()
+}
+
 
