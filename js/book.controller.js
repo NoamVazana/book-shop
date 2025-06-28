@@ -13,9 +13,9 @@ function render(){
     </tr>`
 
     const elBookTable = document.querySelector('.book-table')
-    const Books = getBooks()
+    const books = getBooks()
 
-    var strHtml = Books.map(book => `
+    var strHtml = books.map(book => `
         <tr>
             <td>${book.name}</td>
             <td>${book.price}</td>
