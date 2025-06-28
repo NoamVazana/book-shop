@@ -45,13 +45,26 @@ function onUpdateBook(id){
 }
 
 function onAddBook(){
-    var bookName = prompt("Please add the book's name")
-    var bookPrice = prompt("Please add the book's price")
-    var bookImgURL = prompt('Please add a URL to the cover image. click enter to skip')
-    var bookInfo = prompt('Please add info about the book. click enter to skip')
+    const elAddBookModal = document.querySelector('.add-book-modal')
+    const elAddBookForm = elAddBookModal.querySelector('form')
 
+    elAddBookForm.reset() // clears the form
+    elAddBookModal.showModal() //show the modal
+
+}
+
+function onSubmitNewBook(ev){
+    ev.preventDefault();   
+
+    const bookName = document.querySelector('.title-input').value
+    const bookPrice = document.querySelector('.price-input').value
+    const bookImgURL = document.querySelector('.img-input').value
+    const bookInfo = document.querySelector('.info-input').value
+    
     addBook(bookName, bookPrice, bookImgURL,bookInfo)
     render()
+    document.querySelector('.add-book-modal').close()
+
     showSuccessMsg(`The book ${bookName} has been added successfully`)
 }
 
@@ -75,7 +88,7 @@ function onShowDetails(bookId){
 
 function onFilter(ev){
     ev.preventDefault();         
-    const elInput = document.querySelector('input')
+    const elInput = document.querySelector('.controls-container input')
     if (!elInput.value) return
 
     gFilterBy = elInput.value

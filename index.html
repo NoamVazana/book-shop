@@ -30,6 +30,21 @@
         <form method="dialog"> 
         </form>     
     </dialog>
-
+    <dialog class="add-book-modal">
+        <form method="dialog" onsubmit="onSubmitNewBook(event)"> 
+            <p>Book Title <span>*</span></p>
+            <input class='title-input' type="text" required placeholder="Book title">
+            <p>Price <span>*</span></p>
+            <input class='price-input' type="number" required placeholder="120">
+            <p>Image URL </p>
+            <input class='img-input' type="url" placeholder="https://cdn.example.com/images/photo.jpg.">
+            <p>Info </p>
+            <input class='info-input' type="text" placeholder="e.g. A thrilling sci-fi adventure set on Mars, exploring friendship and survival.">
+            <footer>
+                <button type="submit">Save</button>
+                <button type="button" onclick="this.closest('dialog').close()">Cancel</button>
+            </footer>
+        </form>     
+    </dialog>
 </body>
 </html>
