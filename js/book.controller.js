@@ -42,8 +42,10 @@ function onUpdateBook(id){
 function onAddBook(){
     var bookName = prompt("Please add the book's name")
     var bookPrice = prompt("Please add the book's price")
+    var bookImgURL = prompt('Please add a URL to the cover image. click enter to skip')
+    var bookInfo = prompt('Please add info about the book. click enter to skip')
 
-    addBook(bookName, bookPrice)
+    addBook(bookName, bookPrice, bookImgURL,bookInfo)
     render()
 }
 

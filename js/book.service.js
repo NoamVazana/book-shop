@@ -20,8 +20,8 @@ function updatePrice(id, price){
     return updatedBook
 }
 
-function addBook(name, price){
-    gBooks.push(createBook(name, price))
+function addBook(name, price, imgURL, info){
+    gBooks.push(createBook(name, price, imgURL, info))
     _saveBooks()
 }
 
