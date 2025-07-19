@@ -29,24 +29,25 @@ function render(){
                 <button class="delete" onClick='onRemoveBook("${book.id}")'>Delete</button>
             </td>
             <td class="rating-cell">
-            ${renderStars(book.rating)}
+            ${renderStars(book.rating, book.id)}
             </td>
         </tr>
         `)
     elBookTable.innerHTML = thHtml + strHtml.join('')
 }
 
-function renderStars(rating){
+function renderStars(rating, bookId){
     var strHtml = ''
     for (var i = 0; i < 5; i++) {
-        strHtml +=`<img onclick="onRate(this)" src="img/${i < rating ? 'full-star' : 'empty-star'}.png" alt="star" class="star" data-star="${i+1}">`
+        strHtml +=`<img onclick="onRate(this, '${bookId}')" src="img/${i < rating ? 'full-star' : 'empty-star'}.png" alt="star" class="star" data-star="${i+1}">`
     }
     return strHtml
 }
 
-function onRate(elStar){
-    console.log(elStar.dataset.star);
-    
+function onRate(elStar, bookId){
+    const updatedRating = elStar.dataset.star
+    updateRating(bookId, updatedRating)
+    render()
 }
 
 function onRemoveBook(id){

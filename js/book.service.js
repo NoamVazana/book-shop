@@ -22,6 +22,12 @@ function updatePrice(id, price){
     return updatedBook
 }
 
+function updateRating(id, rating) {
+    const updatedBook = gBooks.find(book => book.id === id).rating = rating
+    _saveBooks()
+    return updatedBook
+}
+
 function addBook(name, price, imgURL, info, rating){
     gBooks.push(createBook(name, price, imgURL, info, rating))
     _saveBooks()
