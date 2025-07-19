@@ -39,10 +39,14 @@ function render(){
 function renderStars(rating){
     var strHtml = ''
     for (var i = 0; i < 5; i++) {
-        strHtml +=`<img src="img/${i < rating ? 'full-star' : 'empty-star'}.png" alt="star" class="star">`
+        strHtml +=`<img onclick="onRate(this)" src="img/${i < rating ? 'full-star' : 'empty-star'}.png" alt="star" class="star" data-star="${i+1}">`
     }
     return strHtml
+}
 
+function onRate(elStar){
+    console.log(elStar.dataset.star);
+    
 }
 
 function onRemoveBook(id){
