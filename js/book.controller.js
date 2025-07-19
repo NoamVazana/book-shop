@@ -88,7 +88,7 @@ function onShowDetails(bookId){
 
 function onFilter(ev){
     ev.preventDefault();         
-    const elInput = document.querySelector('.controls-container input')
+    const elInput = document.querySelector('.filters-container input')
     if (!elInput.value) return
 
     gFilterBy = elInput.value

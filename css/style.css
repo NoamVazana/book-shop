@@ -4,52 +4,96 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
+    padding: 0 40px;
+    background-color:#bab8cf;
+    overflow-x: hidden;
 }
 
-.controls-container{
+.filters-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background-color: #7d77af;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 6px;
+}
+
+.main-content{
+    margin: 5rem auto;
+}
+
+h2{
+    padding:0%;
+    margin: 0%;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.filter-panel{
+    display: flex;
+    align-items: stretch;
+    gap:5px;
+}
+
+.filter-panel input{
+    border-radius: 6PX;
+    border: #918f8f;
+}
+
+input[type="text"] {
+  padding-left: 0.75rem;
 }
 
 table{
-      width: 50vw;
-      margin:auto;
-      margin-top: 7rem;
-      text-align: center;
+    width: 100%;
+    margin:2rem auto;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #918f8f;
+
 }
 
 table th, table td {
-  padding: 10px;
+    padding: 1rem;
+
 }
 
 table th{
-    background-color: rgb(177, 177, 177);
+    /* background-color: rgb(177, 177, 177); */
+    background-color: #847eb8;
+    color: #1e1b2e;
+    letter-spacing: 0.05em;
+
 }
 
 table tr:nth-child(odd) {
-    background-color: lightgray;
+    /* background-color: lightgray; */
+  background-color: #d5cfea;
+
 }
 
 table tr:nth-child(even) {
-    background-color: rgb(230, 230, 230);
+    /* background-color: rgb(230, 230, 230); */
+  background-color: #c5bee1;
+
 }
 
-table tr button{
-    height: 25px;
-    width: 80px;
-    border-radius: 10px;
-    border: 0cap;
+table button,
+.add-book,
+.filter-panel button{
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
     font-weight: bold;
-}
+    font-size: 0.9rem;
+    cursor: pointer;
+     /* transition: all 0.2s ease;  */
+    color: white;
+    background-color: rgb(123, 149, 131);
 
-.details{
-    background-color: rgb(7, 176, 255);
-}
-.update{
-    background-color: rgb(255, 192, 66);
-}
-.delete{
-    background-color: rgb(255, 130, 52);
 }
 
 .book-img{
@@ -60,3 +104,47 @@ table tr button{
 .hidden{
     display: none;
 }
+
+  /*                  */
+ /* Buttens styling */
+/*                */
+
+.details {
+    background-color: #7673a2; 
+}
+.details:hover {
+    background-color: #635f8a; 
+}
+
+.update {
+    background-color: #466b3f; 
+    color: #f9fafb;
+}
+.update:hover {
+    background-color: #3b5437; 
+}
+
+.delete {
+    background-color: #9f1239; 
+}
+.delete:hover {
+    background-color: #881337; 
+}
+
+.add-book {
+    background-color: #4c436f; 
+
+}
+.add-book:hover {
+    background-color: #332d4a;
+}
+
+.filter-panel button {
+    background-color: #4c436f; 
+}
+.filter-panel button:hover {
+    background-color: #332d4a; 
+}
+
+
+

@@ -7,20 +7,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body onload="onInit()">
-    <div class="controls-container">
+    <h1>My Book Shop</h1>
+    <section class="filters-container">
+        <h2>Sort & Filter</h2>
         <form onsubmit="onFilter(event)" class="filter-panel">
             <input type="text" placeholder="Search by title" oninput="onSetFilter(this.value)">
             <button>Filter</button>
-             <button type="button" onclick="onClearFilter()">Clear</button>
+            <button type="button" onclick="onClearFilter()">Clear</button>
         </form>
+
+    </section>
+
+    <section class="main-content">   
         <button class="add-book" onclick="onAddBook()">Add a book</button>
-    </div>
-    <table class="book-table">
-    </table>    
-    <script src="js/util.service.js"></script>
-    <script src="js/storage.service.js"></script>
-    <script src="js/book.service.js"></script>
-    <script src="js/book.controller.js"></script>
+        <table class="book-table">
+        </table>    
+        <script src="js/util.service.js"></script>
+        <script src="js/storage.service.js"></script>
+        <script src="js/book.service.js"></script>
+        <script src="js/book.controller.js"></script>
+    </section>
 
     <dialog class="book-details">  <!-- add a modal -->
         <form method="dialog"> <!-- add functionality of closing with esc and x btn -->
