@@ -104,6 +104,17 @@ table button,
 .hidden{
     display: none;
 }
+.rating-cell{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;                 
+    justify-content: center;
+}
+.rating-cell img{
+    max-height: 1.5em;
+}
+
+
 
   /*                  */
  /* Buttens styling */
