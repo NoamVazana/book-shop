@@ -13,6 +13,7 @@ function render(){
       <th>Title</th>
       <th>Price</th>
       <th>Actions</th>
+      <th>Rating</th>
     </tr>`
 
     const elBookTable = document.querySelector('.book-table')
@@ -25,10 +26,23 @@ function render(){
             <td>
                 <button class="details" onClick='onShowDetails("${book.id}")'>Details</button>
                 <button class="update" onClick='onUpdateBook("${book.id}")'>Update</button>
-                <button class="delete" onClick='onRemoveBook("${book.id}")'>Delete</button>            </td>
+                <button class="delete" onClick='onRemoveBook("${book.id}")'>Delete</button>
+            </td>
+            <td class="rating-cell">
+            ${renderStars(book.rating)}
+            </td>
         </tr>
         `)
     elBookTable.innerHTML = thHtml + strHtml.join('')
+}
+
+function renderStars(rating){
+    var strHtml = ''
+    for (var i = 0; i < 5; i++) {
+        strHtml +=`<img src="img/${i < rating ? 'full-star' : 'empty-star'}.png" alt="star" class="star">`
+    }
+    return strHtml
+
 }
 
 function onRemoveBook(id){

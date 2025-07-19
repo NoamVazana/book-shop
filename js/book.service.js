@@ -22,8 +22,8 @@ function updatePrice(id, price){
     return updatedBook
 }
 
-function addBook(name, price, imgURL, info){
-    gBooks.push(createBook(name, price, imgURL, info))
+function addBook(name, price, imgURL, info, rating){
+    gBooks.push(createBook(name, price, imgURL, info, rating))
     _saveBooks()
 }
 
@@ -38,7 +38,6 @@ function _createInitBooks(){
     const jojosInfo = 'The story of the Joestar family, who are possessed with intense psychic strength, and the adventures each member encounters throughout their lives.'
     const MobPsyImgUrl = 'https://m.media-amazon.com/images/M/MV5BYzU3NDM4ZjgtY2UyMi00YTczLTgyNDEtMjBiMDJlOGUxNjcxXkEyXkFqcGc@._V1_.jpg'
     const mobPsyInfo = 'A 12-year-old boy and his best friend, a wise 28-year-old dog with magical powers, go on a series of surreal adventures in a remote future.'
-   
     _saveBooks()
    
     return [
@@ -48,11 +47,12 @@ function _createInitBooks(){
     ]
 }
 
-function createBook(name, price, coverImgUrl, info){
+function createBook(name, price, coverImgUrl, info, rating){
     if(!coverImgUrl) coverImgUrl = 'https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg'
     if(!info) info = 'No available info'
+    if(!rating) rating = 0
     _saveBooks()
-    return {id: makeid(), name, price, coverImgUrl, info}
+    return {id: makeid(), name, price, coverImgUrl, info, rating}
 }
 
 function getBookById(id){
