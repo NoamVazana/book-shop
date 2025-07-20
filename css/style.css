@@ -43,7 +43,12 @@ h2{
 
 input[type="text"] {
   padding-left: 0.75rem;
+  font-size: 1rem;
 }
+
+/*               */
+/* table styling */
+/*               */
 
 table{
     width: 100%;
@@ -62,7 +67,6 @@ table th, table td {
 }
 
 table th{
-    /* background-color: rgb(177, 177, 177); */
     background-color: #847eb8;
     color: #1e1b2e;
     letter-spacing: 0.05em;
@@ -70,13 +74,11 @@ table th{
 }
 
 table tr:nth-child(odd) {
-    /* background-color: lightgray; */
   background-color: #d5cfea;
 
 }
 
 table tr:nth-child(even) {
-    /* background-color: rgb(230, 230, 230); */
   background-color: #c5bee1;
 
 }
@@ -90,15 +92,74 @@ table button,
     font-weight: bold;
     font-size: 0.9rem;
     cursor: pointer;
-     /* transition: all 0.2s ease;  */
     color: white;
     background-color: rgb(123, 149, 131);
 
 }
+/*                 */
+/* cards styling   */
+/*                 */
+
+.card-container {
+    display: none; /* Initially hidden */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #948bb7;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 200px;
+    
+    text-align: center;
+}
 
 .book-img{
-     width: 200px;
     height: auto; 
+    border-radius: 6px;
+}
+
+.book-card h3 {
+    margin-top: 0;
+}
+h3 {
+    margin-bottom: 0;
+}
+
+.book-card p{
+    margin-top: 0.5rem;
+}
+
+.book-card .rating-cell{
+    margin: 0.5rem 0;
+}
+
+
+.book-card .actions button {
+    margin: 0.25rem;
+}
+
+.book-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.card-footer {
+  margin-top: auto; /* pushes footer to the bottom */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .hidden{
@@ -116,9 +177,9 @@ table button,
 
 
 
-  /*                  */
- /* Buttens styling */
-/*                */
+/*                 */
+/* Buttons styling */
+/*                 */
 
 .details {
     background-color: #7673a2; 

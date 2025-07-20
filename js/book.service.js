@@ -6,7 +6,7 @@ var gBooks = _createInitBooks()
 
 function getBooks(filterBy){
     if (!filterBy) return gBooks //no filter -> return all    
-    return gBooks.filter(book => book.name.includes(filterBy)) //return filtered table
+    return gBooks.filter(book => book.name.toLowerCase().includes(filterBy)) //return filtered table
 }
 
 function removeBook(id){

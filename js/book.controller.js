@@ -6,22 +6,76 @@ var gQueryOptions= {
     sortBy: {},
     page:{idx:0, size: 4}
 }
+var gIsCardView = false
+
 
 function onInit(){
     render()
 }
 
 function render(){
-    const thHtml = `
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Actions</th>
-      <th>Rating</th>
-    </tr>`
+   
+    const books = getBooks(gFilterBy) 
 
     const elBookTable = document.querySelector('.book-table')
-    const books = getBooks(gFilterBy)
+    const elCards = document.querySelector('.card-container')
+    const elMain = document.querySelector('.main-content')
+
+    if (gIsCardView) {
+        elBookTable.style.display = 'none'
+        elCards.style.display = 'flex'
+        renderCardView(books, elCards)
+    } else {
+        elBookTable.style.display = 'table'
+        elCards.style.display = 'none'
+        renderTableView(books, elBookTable)
+    }
+
+    // var strHtml = books.map(book => `
+    //     <tr>
+    //         <td>${book.name}</td>
+    //         <td>${book.price}</td>
+    //         <td>
+    //             <button class="details" onClick='onShowDetails("${book.id}")'>Details</button>
+    //             <button class="update" onClick='onUpdateBook("${book.id}")'>Update</button>
+    //             <button class="delete" onClick='onRemoveBook("${book.id}")'>Delete</button>
+    //         </td>
+    //         <td class="rating-cell">
+    //         ${renderStars(book.rating, book.id)} 
+    //         </td>
+    //     </tr>
+    //     `)
+    // elBookTable.innerHTML = thHtml + strHtml.join('')
+}
+
+function renderCardView(books, elContainer){
+    var strHtml = books.map(book => `
+        <div class="book-card">
+            <h3>${book.name}</h3>
+            <p><strong>Price:</strong> $${book.price}</p>
+            <img class="book-img" src="${book.coverImgUrl}">
+            <div class="card-footer">
+                <div class="rating-cell">
+                    ${renderStars(book.rating, book.id)}
+                </div>
+                <div class="actions">
+                    <button class="details" onClick='onShowDetails("${book.id}")'>Details</button>
+                    <button class="update" onClick='onUpdateBook("${book.id}")'>Update</button>
+                    <button class="delete" onClick='onRemoveBook("${book.id}")'>Delete</button>
+                </div>
+            </div>
+        </div>`)
+        elContainer.innerHTML = strHtml.join('')
+}
+
+function renderTableView(books, elBookTable){
+    const thHtml = `
+                    <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                    <th>Rating</th>
+                    </tr>`
 
     var strHtml = books.map(book => `
         <tr>
@@ -109,17 +163,8 @@ function onShowDetails(bookId){
     elDetailsModal.showModal()
 }
 
-// function onFilter(ev){
-//     ev.preventDefault();         
-//     const elInput = document.querySelector('.filters-container input')
-//     if (!elInput.value) return
-
-//     gFilterBy = elInput.value
-//     render()
-// }
-
 function onSetFilter(txt) {
-  gFilterBy = txt;
+  gFilterBy = txt.toLowerCase();
   render();
 }
 
@@ -141,4 +186,10 @@ function showSuccessMsg(msg){
      setTimeout(() => elSuccessModal.close(), 2000)
 }
 
+
+function onToggleView(elToggleBtn) {
+    gIsCardView = !gIsCardView
+    elToggleBtn.innerText = gIsCardView ? 'Switch to Table View' : 'Switch to Cards View'
+    render()
+}
 

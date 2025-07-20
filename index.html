@@ -18,9 +18,12 @@
     </section>
 
     <section class="main-content">  
+        <button class="toggle-view" onclick="onToggleView(this)">Switch to Cards View</button>
         <button class="add-book" onclick="onAddBook()">Add a book</button>
-        <table class="book-table">
-        </table>    
+
+        <table class="book-table"></table>    
+        <div class="card-container"></div>
+        
         <script src="js/util.service.js"></script>
         <script src="js/storage.service.js"></script>
         <script src="js/book.service.js"></script>
