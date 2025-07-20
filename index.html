@@ -10,9 +10,8 @@
     <h1>My Book Shop</h1>
     <section class="filters-container">
         <h2>Sort & Filter</h2>
-        <form onsubmit="onFilter(event)" class="filter-panel">
-            <input type="text" placeholder="Search by title" oninput="onSetFilter(this.value)">
-            <button>Filter</button>
+        <form class="filter-panel">
+            <input type="text" placeholder="Search by title" class="title-search" oninput="onSetFilter(this.value)">
             <button type="button" onclick="onClearFilter()">Clear</button>
         </form>
 

@@ -1,7 +1,11 @@
 'use strict'
 
 var gFilterBy = ''
-
+var gQueryOptions= {
+    filterBy: {txt:'', rating: 0 },
+    sortBy: {},
+    page:{idx:0, size: 4}
+}
 
 function onInit(){
     render()
@@ -29,7 +33,7 @@ function render(){
                 <button class="delete" onClick='onRemoveBook("${book.id}")'>Delete</button>
             </td>
             <td class="rating-cell">
-            ${renderStars(book.rating, book.id)}
+            ${renderStars(book.rating, book.id)} 
             </td>
         </tr>
         `)
@@ -105,14 +109,14 @@ function onShowDetails(bookId){
     elDetailsModal.showModal()
 }
 
-function onFilter(ev){
-    ev.preventDefault();         
-    const elInput = document.querySelector('.filters-container input')
-    if (!elInput.value) return
+// function onFilter(ev){
+//     ev.preventDefault();         
+//     const elInput = document.querySelector('.filters-container input')
+//     if (!elInput.value) return
 
-    gFilterBy = elInput.value
-    render()
-}
+//     gFilterBy = elInput.value
+//     render()
+// }
 
 function onSetFilter(txt) {
   gFilterBy = txt;
@@ -121,7 +125,7 @@ function onSetFilter(txt) {
 
 function onClearFilter() {
   gFilterBy = '';
-  doctument.querySelector('.input').value = ''
+  document.querySelector('.title-search').value = ''
   render();
 }
 
