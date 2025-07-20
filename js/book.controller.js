@@ -53,7 +53,9 @@ function renderCardView(books, elContainer){
         <div class="book-card">
             <h3>${book.name}</h3>
             <p><strong>Price:</strong> $${book.price}</p>
-            <img class="book-img" src="${book.coverImgUrl}">
+            <div class="book-img-container">
+                <img class="book-img" src="${book.coverImgUrl}">
+            </div>
             <div class="card-footer">
                 <div class="rating-cell">
                     ${renderStars(book.rating, book.id)}
@@ -189,7 +191,7 @@ function showSuccessMsg(msg){
 
 function onToggleView(elToggleBtn) {
     gIsCardView = !gIsCardView
-    elToggleBtn.innerText = gIsCardView ? 'Switch to Table View' : 'Switch to Cards View'
+    elToggleBtn.innerText = gIsCardView ? 'Table View' : 'Cards View'
     render()
 }
 

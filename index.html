@@ -18,7 +18,9 @@
     </section>
 
     <section class="main-content">  
-        <button class="toggle-view" onclick="onToggleView(this)">Switch to Cards View</button>
+        <button id="view-toggle-btn" class="toggle-btn" onclick="onToggleView(this)" aria-pressed="false">
+        Cards View
+        </button>
         <button class="add-book" onclick="onAddBook()">Add a book</button>
 
         <table class="book-table"></table>    

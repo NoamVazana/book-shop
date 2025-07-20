@@ -105,26 +105,33 @@ table button,
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;
     margin-top: 2rem;
+    
 }
 
 .book-card {
+    position: relative;
+    flex-basis: clamp(190px, 30%, 250px); /* (min width, prefered width 30% of container, max width)*/
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     background-color: #948bb7;
     padding: 1rem;
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    width: 200px;
-    
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);    
     text-align: center;
+    min-height: 400px;
+    max-height:500px ;
 }
 
 .book-img{
+    width: 100%;
     height: auto; 
-    border-radius: 6px;
+}
+
+.book-img-container{
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 250px;
 }
 
 .book-card h3 {
@@ -218,5 +225,25 @@ h3 {
     background-color: #332d4a; 
 }
 
+.toggle-btn {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #4c436f;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.toggle-btn[aria-pressed="true"] {
+  background-color: #332d4a;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.03);
+  background-color: #3e3760;
+}
 
 
