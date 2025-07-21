@@ -159,7 +159,13 @@ function onSetFilter() {
     render();
 }
 
+function onClearFilters(){
+    document.querySelector('.title-search').value = ''
+    document.querySelector('.rating-filter').value='0' 
 
+    gQueryOptions.filterBy.txt=''
+    gQueryOptions.filterBy.rating = 0
+}
 
 function showSuccessMsg(msg){
     const elSuccessModal = document.querySelector('.success-message')
