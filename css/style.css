@@ -19,6 +19,12 @@ body{
     color: white;
 }
 
+.filter-controllers{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .main-content{
     margin: 5rem auto;
 }
@@ -32,10 +38,15 @@ h2{
     font-weight: 100;
 }
 
+.sort-panel{
+      margin-left: auto;
+      margin-right: 30px;
+}
+
 .filter-panel{
     display: flex;
     align-items: stretch;
-    gap:5px;
+    gap:10px;
     height: 30px;
     align-items: center;
 }
