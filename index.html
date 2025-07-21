@@ -12,11 +12,15 @@
         <h2>Sort & Filter</h2>
         <form class="filter-panel">
             <input class="title-search"  type="text" placeholder="Search by title" oninput="onSetFilter()"/>
-            <label >
-                <span>Min Rating</span>
-                <input class="rating-filter" type="range" min="0" max="5" value="0"
-                    onchange="this.title=this.value;onSetFilter()"/>
-            </label>
+            <label for="rating-filter">Min Rating:</label>
+            <select class="rating-filter" onchange="onSetFilter()">
+                <option value="0">All Ratings</option>
+                <option value="1">★ and up</option>
+                <option value="2">★★ and up</option>
+                <option value="3">★★★ and up</option>
+                <option value="4">★★★★ and up</option>
+                <option value="5">★★★★★ only</option>
+            </select>
         </form>
 
     </section>
