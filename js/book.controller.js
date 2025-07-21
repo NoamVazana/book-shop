@@ -1,6 +1,5 @@
 'use strict'
 
-var gFilterBy = ''
 var gQueryOptions= {
     filterBy: {txt:'', rating: 0 },
     sortBy: {},
@@ -15,7 +14,7 @@ function onInit(){
 
 function render(){
    
-    const books = getBooks(gFilterBy) 
+    const books = getBooks(gQueryOptions) 
 
     const elBookTable = document.querySelector('.book-table')
     const elCards = document.querySelector('.card-container')
@@ -31,21 +30,6 @@ function render(){
         renderTableView(books, elBookTable)
     }
 
-    // var strHtml = books.map(book => `
-    //     <tr>
-    //         <td>${book.name}</td>
-    //         <td>${book.price}</td>
-    //         <td>
-    //             <button class="details" onClick='onShowDetails("${book.id}")'>Details</button>
-    //             <button class="update" onClick='onUpdateBook("${book.id}")'>Update</button>
-    //             <button class="delete" onClick='onRemoveBook("${book.id}")'>Delete</button>
-    //         </td>
-    //         <td class="rating-cell">
-    //         ${renderStars(book.rating, book.id)} 
-    //         </td>
-    //     </tr>
-    //     `)
-    // elBookTable.innerHTML = thHtml + strHtml.join('')
 }
 
 function renderCardView(books, elContainer){
@@ -165,9 +149,14 @@ function onShowDetails(bookId){
     elDetailsModal.showModal()
 }
 
-function onSetFilter(txt) {
-  gFilterBy = txt.toLowerCase();
-  render();
+function onSetFilter() {
+    const elTitle = document.querySelector('.title-search')
+    const elRating = document.querySelector('.rating-filter')
+    
+    gQueryOptions.filterBy.txt = elTitle.value.toLowerCase()
+    gQueryOptions.filterBy.rating = +elRating.value
+    
+    render();
 }
 
 

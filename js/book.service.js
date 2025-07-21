@@ -4,9 +4,27 @@ const STORAGE_KEY = 'books'
 
 var gBooks = _createInitBooks()
 
-function getBooks(filterBy){
-    if (!filterBy) return gBooks //no filter -> return all    
-    return gBooks.filter(book => book.name.toLowerCase().includes(filterBy)) //return filtered table
+function getBooks(options = {}){
+    const filterBy = options.filterBy
+
+    var books = _filterBooks(filterBy)
+
+    return books
+}
+
+function _filterBooks(filterBy){
+    var books = gBooks.slice()
+
+    if (filterBy.txt) {
+        books = books.filter(book => book.name.toLowerCase().includes(filterBy.txt))
+    }
+
+    if (filterBy.rating) {
+        books = books.filter(book => book.rating >= filterBy.rating)
+    }
+            
+    return books
+
 }
 
 function removeBook(id){
