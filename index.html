@@ -11,8 +11,11 @@
     <section class="filters-container">
         <h2>Sort & Filter</h2>
         <form class="filter-panel">
-            <input type="text" placeholder="Search by title" class="title-search" oninput="onSetFilter(this.value)">
-            <button type="button" onclick="onClearFilter()">Clear</button>
+            <input class="title-search"  type="text" placeholder="Search by title" oninput="onSetFilter(this.value)">
+            <label >
+                <span>Min Rating</span>
+                <input class="rating-filter" type="range" min="0" max="5" value="0">
+            </label>
         </form>
 
     </section>

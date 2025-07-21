@@ -170,11 +170,7 @@ function onSetFilter(txt) {
   render();
 }
 
-function onClearFilter() {
-  gFilterBy = '';
-  document.querySelector('.title-search').value = ''
-  render();
-}
+
 
 function showSuccessMsg(msg){
     const elSuccessModal = document.querySelector('.success-message')

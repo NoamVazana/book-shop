@@ -16,6 +16,7 @@ body{
     padding: 20px;
     margin: 20px 0;
     border-radius: 6px;
+    color: white;
 }
 
 .main-content{
@@ -28,12 +29,14 @@ h2{
     margin-bottom: 10px;
     font-size: 1.1rem;
     color: white;
+    font-weight: 100;
 }
 
 .filter-panel{
     display: flex;
     align-items: stretch;
     gap:5px;
+    height: 30px;
 }
 
 .filter-panel input{
