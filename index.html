@@ -10,20 +10,32 @@
     <h1>My Book Shop</h1>
     <section class="filters-container">
         <h2>Sort & Filter</h2>
-        <form class="filter-panel">
-            <input class="title-search"  type="text" placeholder="Search by title" oninput="onSetFilter()"/>
-            <label for="rating-filter">Min Rating:</label>
-            <select class="rating-filter" onchange="onSetFilter()">
-                <option value="0">All Ratings</option>
-                <option value="1">★ and up</option>
-                <option value="2">★★ and up</option>
-                <option value="3">★★★ and up</option>
-                <option value="4">★★★★ and up</option>
-                <option value="5">★★★★★ only</option>
-            </select>
-            <button class="clear-filters" onclick="onClearFilters()">Clear Filters</button>
-
-        </form>
+        <section class="filter-controllers">
+            <form class="filter-panel">
+                <input class="title-search"  type="text" placeholder="Search by title" oninput="onSetFilter()"/>
+                <label for="rating-filter">Min Rating:</label>
+                <select class="rating-filter" onchange="onSetFilter()">
+                    <option value="0">All Ratings</option>
+                    <option value="1">★ and up</option>
+                    <option value="2">★★ and up</option>
+                    <option value="3">★★★ and up</option>
+                    <option value="4">★★★★ and up</option>
+                    <option value="5">★★★★★ only</option>
+                </select>
+                <button class="clear-filters" onclick="onClearFilters()">Clear Filters</button>
+            </form>
+            <section class="sort-controllers">
+                <label for="Sort">Sort</label>
+                <select class="sort-options" onchange="onSetSort()">
+                    <option value="all">All</option>
+                    <option value="title">By Title</option>
+                    <option value="price">By Price</option>
+                    <option value="rating">By Rating</option>
+                </select>
+                <input class="decending" name="sort-direction" type="radio" oninput="onSetSort()">Decending</input>
+                <input class="ascending" name="sort-direction" type="radio" oninput="onSetSort()">Ascending</input>
+            </section>
+        </section>
     </section>
 
     <section class="main-content">  

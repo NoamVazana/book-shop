@@ -167,6 +167,16 @@ function onClearFilters(){
     gQueryOptions.filterBy.rating = 0
 }
 
+function onSetSort(){
+    const elSortField = document.querySelector('.sort-options')
+    const elSortDir = document.querySelector('.decending')
+
+    gQueryOptions.sortBy.sortField = elSortField.value
+    gQueryOptions.sortBy.sortDir = elSortDir.checked ? -1:1
+
+    render()
+}
+
 function showSuccessMsg(msg){
     const elSuccessModal = document.querySelector('.success-message')
     const elForm = elSuccessModal.querySelector('form'); 

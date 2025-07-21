@@ -6,8 +6,23 @@ var gBooks = _createInitBooks()
 
 function getBooks(options = {}){
     const filterBy = options.filterBy
+    const sortBy = options.sortBy
 
     var books = _filterBooks(filterBy)
+
+    if (sortBy.sortField) {
+        switch (sortBy.sortField) {
+            case 'title':
+                books.sort((book1, book2) => book1.name.toLowerCase().localeCompare(book2.name.toLowerCase()) * sortBy.sortDir)                
+                break;
+            case 'price':
+                books.sort((book1, book2) => (book1.price - book2.price) * sortBy.sortDir)                               
+                break;
+            case 'rating':
+                books.sort((book1, book2) => (book1.rating - book2.rating) * sortBy.sortDir)                                              
+                break;
+        }
+    }
 
     return books
 }
@@ -71,10 +86,10 @@ function _createInitBooks(){
     ]
 }
 
-function createBook(name, price, coverImgUrl, info, rating){
+function createBook(name, price, coverImgUrl, info, rating = 0){
     if(!coverImgUrl) coverImgUrl = 'https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg'
     if(!info) info = 'No available info'
-    if(!rating) rating = 0
+    // if(!rating) rating = 0
     _saveBooks()
     return {id: makeid(), name, price, coverImgUrl, info, rating}
 }
